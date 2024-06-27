@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+
+    <title>Title</title>
+</head>
+<body>
+
+
+<div class="topnav">
+  <a href="/">Главная</a>
+  <a href="{{ url_for('profile',username=username) }}">{{ username }}</a>
+  <a href="/logout" style="float:right">Выход</a>
+</div>
+
+{% block content %}
+
+
+
+{% endblock %}
+
+</body>
+</html>

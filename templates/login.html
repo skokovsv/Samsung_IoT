@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+
+    <title>Login page</title>
+</head>
+<body>
+
+
+
+
+
+
+  <div class="reg-card">
+      {% for cat, msg in get_flashed_messages(True) %}
+        <div class="flash {{ cat }}">{{ msg }}</div>
+    {% endfor %}
+    <h6>Авторизация</h6>
+    <form action="" method="post" class="form-login">
+    <label><b>Имя пользователя:</b> </label>
+    <input type="text" name="username" value="" placeholder="Имя" required >
+
+    <label> <b>Пароль: </b></label><input type="password" name="password" value="" placeholder="Пароль" required >
+
+
+    <input type="submit" value="Войти" />
+    </form>
+
+    </div>
+
+</body>
+</html>

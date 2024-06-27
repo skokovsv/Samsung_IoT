@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>ADMIN PANEL</h1>
+{% for cat, msg in get_flashed_messages(True) %}
+        <div class="flash {{ cat }}">{{ msg }}</div>
+    {% endfor %}
+
+    <div class="row">
+    <div class="leftcolumn">
+        <div class="card">
+
+             <div class="reg-card">
+    <h2>Изменить пароль</h2>
+    <form action="" method="post" class="form-login">
+        <p><label><b>Имя пользователя:</b> </label>
+    <input type="text" name="username_change" value="" placeholder="Имя пользователя" required ></p>
+
+    <label><b>Старый пароль:</b> </label>
+    <input type="password" name="old_password" value="" placeholder="Старый пароль" required >
+
+    <p><label> <b>Новый пароль: </b></label>
+        <input type="password" name="new_password" value="" placeholder="Новый пароль" required ></p>
+
+        <label><b>Подтверждение пароля:</b> </label>
+    <input type="password" name="new_password2" value="" placeholder="Новый пароль" required >
+
+    <input type="submit" name="submit_button" value="Изменить" />
+    </form>
+
+    </div>
+
+        </div>
+
+        <div class="card" style="overflow-y: scroll; height: 200px;">
+        <h2>Журнал событий</h2>
+            <table>
+        <thead>
+            <tr>
+                <th>Время</th>
+                <th>Уровень</th>
+                <th>Сообщение</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in log_entries %}
+            {% set parts = entry.split(': ') %}
+            {% set timestamp, level, message = parts[0], parts[1].split()[0], ': '.join(parts[1].split()[1:]) %}
+            <tr>
+                <td>{{ timestamp }}</td>
+                <td>{{ level }}</td>
+                <td>{{ message }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+        </div>
+    </div>
+
+
+
+    <div class="rightcolumn">
+        <div class="card">
+
+            <div class="add_users">
+
+    <h2>Добавить пользователя</h2>
+
+    <form action="" method="post" class="form-add_users">
+    <label><b>Имя пользователя</b> </label>
+    <input type="text" name="new_user_name" value="" placeholder="Имя пользователя" required >
+
+    <p><label> <b>Пароль</b></label>
+    <input type="password" name="new_user_password" value="" placeholder="Пароль" required ></p>
+
+    <input type="submit" name="submit_button" value="Добавить" />
+    </form>
+
+    </div>
+
+
+
+        </div>
+        <div class="card">
+
+            <div class="users_list">
+            <h3>Список пользователей</h3>
+    <ul>
+        {% for user in users %}
+        <li>{{ user.username }} {{ user.ip_address }} <a href="/delete/{{ user.username }}" style="padding-left: 30px">delete</a></li>
+        {% endfor %}
+    </ul>
+
+    </div>
+        </div>
+
+    </div>
+
+    </div>
+
+
+
+{% endblock %}

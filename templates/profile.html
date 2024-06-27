@@ -1,0 +1,31 @@
+
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for cat, msg in get_flashed_messages(True) %}
+        <div class="flash {{ cat }}">{{ msg }}</div>
+    {% endfor %}
+
+<h1>{{ username }} profile</h1>
+
+ <h2>Изменить пароль</h2>
+    <form action="" method="post" class="form-login">
+        <p><label><b>Имя пользователя:</b> </label>
+    <input type="text" name="username_change" value="" placeholder="Имя пользователя" required ></p>
+
+    <label><b>Старый пароль:</b> </label>
+    <input type="password" name="old_password" value="" placeholder="Старый пароль" required >
+
+    <p><label> <b>Новый пароль: </b></label>
+        <input type="password" name="new_password" value="" placeholder="Новый пароль" required ></p>
+
+        <label><b>Подтверждение пароля:</b> </label>
+    <input type="password" name="new_password2" value="" placeholder="Новый пароль" required >
+
+    <input type="submit" name="submit_button" value="Изменить" />
+    </form>
+
+
+{% endblock %}

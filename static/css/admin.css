@@ -1,0 +1,55 @@
+
+
+.flash{
+  padding: 10px;
+}
+.flash.success{
+  border: 1px solid #21DB56;
+  background: #AEFFC5;
+}
+
+.flash.error{
+  border: 1px solid #FF4343;
+  background: #FF9C9C;
+}
+
+.users_list{
+  font-size: 18px;
+
+}
+
+
+/* Создаем две колонки разной ширины, которые становятся рядом друг с другом */
+/* Левая колонка */
+.leftcolumn {
+  margin-left: 50px;
+  float: left;
+  width: 30%;
+}
+
+/* Правая колонка */
+.rightcolumn {
+  margin-right: 30px;
+ float: right;
+  width: 30%;
+  padding-left: 20px;
+}
+
+
+/* Добавим эффект карточки для статей */
+.card {
+  background: #aff7ff;
+  border-radius: 10px;
+  border:2px solid black;
+  padding: 10px;
+  margin-top: 10px;
+  height: auto;
+
+}
+
+/* Очистим обтекание после колонок */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

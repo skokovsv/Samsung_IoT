@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h1>4 LAMP CONTROL</h1>
+<div class="content">
+
+{% for cat, msg in get_flashed_messages(True) %}
+        <div class="flash {{ cat }}">{{ msg }}</div>
+    {% endfor %}
+
+
+
+<form action="/" method="POST">
+
+    <input type="submit" name="submit_button" value="ALL ON">
+    <input type="submit" name="submit_button" value="ALL OFF">
+    <input type="submit" name="submit_button" value="INVERSE">
+    <div class="status">
+
+    <p>UP LED is now: <b>{{ status[0] }}</b></p>
+    <p>DOWN LED is now: <b>{{ status[1] }}</b></p>
+    <p>LEFT LED is now: <b>{{ status[2] }}</b></p>
+    <p>RIGHT LED is now: <b>{{ status[3] }}</b></p>
+
+
+    </div>
+
+<div class="controller">
+
+    <div>
+            <input type="submit" name="submit_button" value="UP">
+    </div>
+    <div class="container">
+      <div><p><input type="submit" name="submit_button" value="LEFT"></p></div>
+      <div><p><input type="submit" name="submit_button" value="RIGHT"></p></div>
+    </div>
+    <div><p><input type="submit" name="submit_button" value="DOWN"></p></div>
+
+	</div>
+</form>
+
+</div>
+
+{% endblock %}
